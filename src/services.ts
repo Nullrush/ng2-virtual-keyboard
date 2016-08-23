@@ -1,10 +1,10 @@
 // Import all services
-import {SampleService} from './services/sample.service';
+import { KeyboardService } from './services/keyboard.service';
 
 // Export all services
-export * from './services/sample.service';
+export * from './services/keyboard.service';
 
 // Export convenience property
 export const PROVIDERS: any[] = [
-  SampleService
+  KeyboardService
 ];

@@ -9,10 +9,10 @@
     "declaration": true,
     "outDir": "./dist"
   },
-  "files": [
-    "typings/index.d.ts",
-    "src/index.ts"
-  ],
+  // "files": [
+  //   "typings/index.d.ts",
+  //   "src/index.ts"
+  // ],
   "exclude": [
     "node_modules",
     "dist"
