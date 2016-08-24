@@ -8,10 +8,11 @@ import { KeyboardService } from '../services'
 export class KeyboardDirective {
     private _defaultStyle = 'querty';
 
-    constructor(private keyboardService: KeyboardService, private el: ElementRef) {
-        keyboardService.attach(el.nativeElement)
-    }
+    constructor(private keyboardService: KeyboardService, private el: ElementRef) {  }
     
-    @Input('keyboard-type') keyboardType: string;
+    @Input('keyboard-type') set keyboardType(keyboard: string) {
+        let config = this.keyboardService.getKeyboardConfig(keyboard);
+        this.keyboardService.startKeyboard(this.el, config);
+    }
 
 }

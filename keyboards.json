@@ -1,5 +1,8 @@
 // For examples of different keyboard layouts, check https://mottie.github.io/Keyboard/index.html
 {
+    "qwerty": {
+        "layout": "qwerty"
+    },
     "ipad-email": {
         "display": {
             "bksp"   : "\u2190",
