@@ -1,25 +1,34 @@
 import { Injectable, ElementRef } from '@angular/core';
 import { Http, Response } from '@angular/http';
-import { } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class KeyboardService {
     private config: any;
 
     constructor(private http: Http) { 
-        this.http.get('/keyboards.json')
-                     .map((response: Response) => response.json())
-                     .subscribe((cfg) => this.config = cfg)
+        this.http.get('keyboards.json')
+            .map((response: Response) => response.json())
+            .catch((err)=> this.handleError(err))
+            .subscribe((cfg) => {
+                this.config = cfg;
+            });
     }
 
     private executeGetKeyboard(target: string) {
 		var keyboard: any;
-		var element:any = $(target);
+		var element: any = $(target);
 		if (element) {
 			keyboard = element.getkeyboard();
 		}
 		return keyboard;
-	};
+	}
+
+    private handleError(err: any) {
+        let errMsg = (err.message) ? err.message : err.status;
+        console.error(errMsg);
+        return Observable.throw(errMsg)
+    }
 
     getKeyboard(element: string) {
         return this.executeGetKeyboard(element);
